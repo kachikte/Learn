@@ -1,0 +1,15 @@
+{% extends 'Learn/base.html' %}
+
+{% block content %}
+<p>
+	<ul>
+		{{ topic }}
+		{% for ent in entry %}
+		<li>{{ ent.date_added|date:'M d, Y H:i' }}</li>
+		<li>{{ ent.text|linebreaks }}</li>
+		{% empty %}
+		<li>No description</li>
+		{% endfor %}
+	</ul>
+</p>
+{% endblock content %}
