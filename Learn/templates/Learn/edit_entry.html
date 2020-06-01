@@ -1,0 +1,10 @@
+{% extends 'Learn/base.html' %}
+{% block content %}
+<p>
+	<form action="{% url 'Learn:edit_entry' entry.id %}" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button name="submit">Edit Entry</button>
+	</form>
+</p>
+{% endblock content %}

@@ -4,9 +4,11 @@
 <p>
 	<ul>
 		{{ topic }}
+		<p><a href="{% url 'Learn:add_entry' topic.id %}">Add Entry</a></p>
 		{% for ent in entry %}
-		<li>{{ ent.date_added|date:'M d, Y H:i' }}</li>
-		<li>{{ ent.text|linebreaks }}</li>
+		<p>{{ ent.date_added|date:'M d, Y H:i' }}</p>
+		<p>{{ ent.text|linebreaks }}</p>
+		<p><a href="{% url 'Learn:edit_entry' ent.id %}">Edit Entry</a></p>
 		{% empty %}
 		<li>No description</li>
 		{% endfor %}

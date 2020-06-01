@@ -2,6 +2,7 @@
 {% block content %}
 <p>
 	<ul>
+		<p><a href="{% url 'Learn:add_topic' %}">Add Topic</a></p>
 		{% for topic in topics %}
 		<li><a href="{% url 'Learn:topic' topic.id %}">{{ topic }}</a></li>
 		{% empty %}
