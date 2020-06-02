@@ -5,6 +5,12 @@
 </head>
 <body>
 	<p><a href="{% url 'Learn:topics' %}">Topics</a></p>
+	{% if user.is_authenticated %}
+	<p><a href="{% url 'users:logout' %}">Logout</a></p>
+	{% else %}
+	<p><a href="{% url 'users:register' %}">Register</a></p>
+	<p><a href="{% url 'users:login' %}">Login</a></p>
+	{% endif %}
 	{% block content %}{% endblock content %}
 </body>
 </html>

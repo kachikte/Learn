@@ -1,0 +1,16 @@
+{% extends 'Learn/base.html' %}
+{% block content %}
+<p>
+	{% if form.errors%}
+	<p>Invalid Username or Password</p>
+	{% endif %}
+</p>
+<p>
+	<form action="{% url 'users:login' %}" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button name="submit">Login</button>
+		<input type="hidden" name="next" value="{% url 'Learn:index' %}" />
+	</form> 
+</p>
+{% endblock content %}
